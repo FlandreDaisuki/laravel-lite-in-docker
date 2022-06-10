@@ -3,9 +3,13 @@ FROM php:7.4-fpm
 ## Install composer
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
 
+# https://github.com/nodesource/distributions#installation-instructions
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+
 RUN apt-get update && apt-get install -y \
     git \
     vim \
+    nodejs \
     tzdata \
     zip unzip \
     libfreetype6-dev \
